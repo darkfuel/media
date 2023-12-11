@@ -4,16 +4,19 @@
     box-sizing: border-box;
 }
 
+
 body{
     display: grid;
     grid-template-areas: 
     "menu"
     "filtro"
     "productos"
+    "pagina"
     "pie"
     ;   
     max-height: 100vh;
     grid-template-rows: 1fr 1.5fr 10fr 1fr;
+
 
 }
 
@@ -30,6 +33,14 @@ body{
     font-size: 25px;
     justify-content: space-between;
     border: solid black 1px;
+}
+
+.menu2{
+    display: none;
+}
+
+.link{
+    display: none;
 }
 
 .descrip{
@@ -62,15 +73,25 @@ body{
     grid-area: productos;
     overflow-y: scroll;
     border: solid black 1px;
+    background-color: #e5e5f7;
+    background-image: radial-gradient( ellipse farthest-corner at 15px 15px , #eeeefc, #eeeefc 50%, #e5e5f7 50%);
+    background-size: 15px 15px;
     
 }  
 
 .producto{
-    
+    background-color: aliceblue;
     flex-direction: column;
     align-items: center;    
     border: solid 1px black;
+    padding: 10px;
 
+}
+
+button{
+    background-color: rgb(146, 205, 207);
+    border-radius: 10px;
+    padding: 5px;
 }
 
 .producto img {
@@ -79,7 +100,6 @@ body{
 }
 footer{
     grid-area: pie;
-    border: solid black 1px; 
     padding: 10px;  
     text-align: center; 
     padding: 10px;
@@ -92,10 +112,11 @@ footer{
 }
 
 .paginacion p{
+    grid-area: pagina;
     border: solid 1px black;
     padding: 10px; 
-
 }
+
 
 .derechos{
     
@@ -103,4 +124,66 @@ footer{
     padding: 10px;
     font-size: 30px;
     
+}
+
+
+@media screen and (min-width:  992px) {
+    .menu{
+        justify-content:start;
+        flex-direction: column;
+        grid-area: menu;
+        padding: 20px;
+        align-items: center;
+        font-size: 20px;
+        border: solid black 1px;
+    }
+
+    .menu2{
+        display: flow-root;
+        flex-direction: column;
+        grid-area: menu2;
+        text-align: center;
+    }
+
+    body{
+        
+        grid-template-columns: repeat(5,1fr);
+        grid-template-areas: 
+        "menu filtro filtro filtro filtro"
+        "menu productos productos productos productos"
+        "menu productos productos productos productos"
+        "menu2 pagina pagina pagina pagina"
+        ;   
+        
+    }
+
+    .icon{
+        display: none;
+        
+    }
+
+    .link{
+        display: contents;
+        
+    }
+    
+
+    .seccion{
+        display: grid;
+        gap: 10px;
+        grid-template-columns: repeat(4,1fr);
+        padding: 30px;
+        grid-area: productos;
+        overflow-y: visible;
+        border: solid black 1px;
+        background-color: #e5e5f7;
+        background-image: radial-gradient( ellipse farthest-corner at 15px 15px , #eeeefc, #eeeefc 50%, #e5e5f7 50%);
+        background-size: 15px 15px; 
+    }  
+
+    footer{
+        display: none;
+    }
+  
+
 }
